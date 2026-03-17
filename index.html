@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Script Squad Writer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>🎬 Script Squad Writer</h1>
+      <p>Plan scenes, draft dialogue, and share a script with friends.</p>
+    </header>
+
+    <main>
+      <section class="panel controls">
+        <h2>Project</h2>
+        <label>
+          Script Title
+          <input id="script-title" type="text" placeholder="The Midnight Plan" />
+        </label>
+        <label>
+          Notes
+          <textarea id="script-notes" rows="3" placeholder="Theme, mood, and goals..."></textarea>
+        </label>
+
+        <div class="toolbar">
+          <button id="add-scene">+ Add Scene</button>
+          <button id="export-json">Export</button>
+          <label class="file-input">
+            Import
+            <input id="import-json" type="file" accept="application/json" />
+          </label>
+          <button id="copy-text">Copy Script</button>
+        </div>
+      </section>
+
+      <section class="panel" id="scenes-panel">
+        <div class="panel-title-row">
+          <h2>Scenes</h2>
+          <small id="autosave-status">Autosaved</small>
+        </div>
+        <div id="scenes-list"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Full Script Preview</h2>
+        <pre id="script-preview"></pre>
+      </section>
+    </main>
+
+    <template id="scene-template">
+      <article class="scene-card">
+        <div class="scene-top">
+          <input class="scene-heading" type="text" placeholder="INT. BEDROOM - NIGHT" />
+          <button class="delete-scene" title="Delete scene">✕</button>
+        </div>
+        <textarea class="scene-direction" rows="3" placeholder="Action lines and direction..."></textarea>
+        <div class="lines"></div>
+        <button class="add-line">+ Add Dialogue Line</button>
+      </article>
+    </template>
+
+    <template id="line-template">
+      <div class="line-row">
+        <input class="line-character" type="text" placeholder="CHARACTER" />
+        <textarea class="line-text" rows="2" placeholder="Dialogue"></textarea>
+        <button class="delete-line" title="Delete line">✕</button>
+      </div>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
